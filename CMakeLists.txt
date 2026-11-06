@@ -46,6 +46,9 @@ add_library(pricer
     src/payoff.cpp
     src/black_scholes.cpp
     src/analytic_pricer.cpp
+    src/normal.cpp
+    src/random.cpp
+    src/monte_carlo_pricer.cpp
     src/market_data.cpp
     src/option.cpp
 )

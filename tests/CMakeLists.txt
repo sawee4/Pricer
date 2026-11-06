@@ -20,6 +20,8 @@ add_executable(pricer_tests
     test_black_scholes.cpp
     test_analytic_pricer.cpp
     test_greeks.cpp
+    test_random.cpp
+    test_monte_carlo.cpp
 )
 target_link_libraries(pricer_tests PRIVATE pricer::pricer pricer_warnings GTest::gtest_main)
 

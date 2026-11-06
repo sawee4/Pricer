@@ -24,4 +24,12 @@ inline constexpr double kInvSqrt2 = 0.70710678118654752440;
     return 0.5 * std::erfc(-x * kInvSqrt2);
 }
 
+/// Inverse standard normal CDF: returns x such that N(x) = p, for p in (0, 1).
+///
+/// Wichura's algorithm AS 241 (PPND16), relative accuracy about 1e-16. Used to turn
+/// uniforms into normals with a transform that is identical on every platform (unlike
+/// std::normal_distribution, whose algorithm is implementation-defined).
+/// Returns -inf / +inf for p = 0 / 1 and NaN outside [0, 1].
+[[nodiscard]] double normInvCdf(double p) noexcept;
+
 }  // namespace pricer::math
