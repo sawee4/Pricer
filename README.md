@@ -30,7 +30,7 @@ ctest --test-dir build -C Release --output-on-failure
 
 - [x] Project skeleton, CMake, CI (Linux GCC/Clang, Windows MSVC)
 - [x] Black-Scholes closed form with continuous dividend yield (calls, puts, digitals)
-- [ ] Analytic Greeks
+- [x] Analytic Greeks (delta, gamma, vega, theta, rho), validated against finite differences
 - [ ] Monte Carlo pricer with standard error and 95% confidence interval
 - [ ] Variance reduction: antithetic variates, control variate
 - [ ] CRR binomial tree, European and American exercise

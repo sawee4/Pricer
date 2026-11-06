@@ -23,5 +23,13 @@ int main() {
               << "European put  : " << p << '\n'
               << "C - P         : " << c - p << '\n'
               << "S - K e^{-rT} : " << 42.0 - 40.0 * std::exp(-0.10 * 0.5) << '\n';
+
+    const Greeks g = pricer.greeks(call, market);
+    std::cout << "\nCall Greeks (vega/rho per 1.0, theta per year)\n"
+              << "  delta : " << g.delta << '\n'
+              << "  gamma : " << g.gamma << '\n'
+              << "  vega  : " << g.vega << '\n'
+              << "  theta : " << g.theta << '\n'
+              << "  rho   : " << g.rho << '\n';
     return 0;
 }

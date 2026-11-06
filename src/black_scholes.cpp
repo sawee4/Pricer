@@ -71,4 +71,42 @@ double digitalPrice(OptionType type, const Inputs& in) {
     return df * math::normCdf(type == OptionType::Call ? d2 : -d2);
 }
 
+Greeks vanillaGreeks(OptionType type, const Inputs& in) {
+    validate(in);
+    const double s = in.spot;
+    const double k = in.strike;
+    const double t = in.maturity;
+    const double divDf = std::exp(-in.dividend * t);  // e^{-qT}
+    const double df = std::exp(-in.rate * t);         // e^{-rT}
+    const double sign = type == OptionType::Call ? 1.0 : -1.0;
+    Greeks g;
+
+    if (totalVolatility(in) < kMinTotalVolatility) {
+        // V = max(sign * (S e^{-qT} - K e^{-rT}), 0): piecewise linear in S.
+        const bool inTheMoney = sign * (s * divDf - k * df) > 0.0;
+        if (inTheMoney) {
+            g.delta = sign * divDf;
+            g.theta = sign * (in.dividend * s * divDf - in.rate * k * df);
+            g.rho = sign * k * t * df;
+        }
+        return g;
+    }
+
+    const auto [d1, d2] = computeD1D2(in);
+    const double sqrtT = std::sqrt(t);
+    const double pdfD1 = math::normPdf(d1);
+    // N(sign*d) gives N(d1), N(d2) for the call and N(-d1), N(-d2) for the put.
+    const double cdfD1 = math::normCdf(sign * d1);
+    const double cdfD2 = math::normCdf(sign * d2);
+
+    g.delta = sign * divDf * cdfD1;
+    g.gamma = divDf * pdfD1 / (s * in.volatility * sqrtT);
+    g.vega = s * divDf * pdfD1 * sqrtT;
+    g.theta = -s * divDf * pdfD1 * in.volatility / (2.0 * sqrtT)
+              - sign * in.rate * k * df * cdfD2
+              + sign * in.dividend * s * divDf * cdfD1;
+    g.rho = sign * k * t * df * cdfD2;
+    return g;
+}
+
 }  // namespace pricer::black_scholes
