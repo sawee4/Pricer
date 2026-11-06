@@ -29,7 +29,7 @@ ctest --test-dir build -C Release --output-on-failure
 ## Roadmap
 
 - [x] Project skeleton, CMake, CI (Linux GCC/Clang, Windows MSVC)
-- [ ] Black-Scholes closed form with continuous dividend yield
+- [x] Black-Scholes closed form with continuous dividend yield (calls, puts, digitals)
 - [ ] Analytic Greeks
 - [ ] Monte Carlo pricer with standard error and 95% confidence interval
 - [ ] Variance reduction: antithetic variates, control variate

@@ -16,6 +16,9 @@ add_executable(pricer_tests
     test_payoff.cpp
     test_market_data.cpp
     test_option.cpp
+    test_normal.cpp
+    test_black_scholes.cpp
+    test_analytic_pricer.cpp
 )
 target_link_libraries(pricer_tests PRIVATE pricer::pricer pricer_warnings GTest::gtest_main)
 

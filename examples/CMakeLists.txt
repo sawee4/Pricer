@@ -1,2 +1,4 @@
-add_executable(basic_usage basic_usage.cpp)
-target_link_libraries(basic_usage PRIVATE pricer::pricer pricer_warnings)
+foreach(example basic_usage price_european)
+    add_executable(${example} ${example}.cpp)
+    target_link_libraries(${example} PRIVATE pricer::pricer pricer_warnings)
+endforeach()
