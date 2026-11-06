@@ -1,0 +1,19 @@
+# Build trees
+build/
+build-*/
+out/
+cmake-build-*/
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.user
+
+# Generated data (regenerate with the example programs)
+*.csv
+!docs/data/*.csv
+
+# Python
+__pycache__/
+.venv/
