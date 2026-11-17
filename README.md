@@ -32,7 +32,7 @@ ctest --test-dir build -C Release --output-on-failure
 - [x] Black-Scholes closed form with continuous dividend yield (calls, puts, digitals)
 - [x] Analytic Greeks (delta, gamma, vega, theta, rho), validated against finite differences
 - [x] Monte Carlo pricer with standard error, 95% confidence interval and convergence study
-- [ ] Variance reduction: antithetic variates, control variate
+- [x] Variance reduction: antithetic variates, control variate (with measured reduction factors)
 - [ ] CRR binomial tree, European and American exercise
 - [ ] Monte Carlo Greeks: bump-and-revalue with common random numbers, pathwise delta
 - [ ] Implied volatility, exotic options (Asian, barrier)
