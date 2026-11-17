@@ -33,6 +33,6 @@ ctest --test-dir build -C Release --output-on-failure
 - [x] Analytic Greeks (delta, gamma, vega, theta, rho), validated against finite differences
 - [x] Monte Carlo pricer with standard error, 95% confidence interval and convergence study
 - [x] Variance reduction: antithetic variates, control variate (with measured reduction factors)
-- [ ] CRR binomial tree, European and American exercise
+- [x] CRR binomial tree, European and American exercise
 - [ ] Monte Carlo Greeks: bump-and-revalue with common random numbers, pathwise delta
 - [ ] Implied volatility, exotic options (Asian, barrier)
