@@ -24,6 +24,7 @@ add_executable(pricer_tests
     test_monte_carlo.cpp
     test_variance_reduction.cpp
     test_binomial.cpp
+    test_monte_carlo_greeks.cpp
 )
 target_link_libraries(pricer_tests PRIVATE pricer::pricer pricer_warnings GTest::gtest_main)
 

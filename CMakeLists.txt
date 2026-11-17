@@ -50,6 +50,7 @@ add_library(pricer
     src/random.cpp
     src/monte_carlo_pricer.cpp
     src/binomial_pricer.cpp
+    src/monte_carlo_greeks.cpp
     src/market_data.cpp
     src/option.cpp
 )

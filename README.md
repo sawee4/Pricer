@@ -34,5 +34,5 @@ ctest --test-dir build -C Release --output-on-failure
 - [x] Monte Carlo pricer with standard error, 95% confidence interval and convergence study
 - [x] Variance reduction: antithetic variates, control variate (with measured reduction factors)
 - [x] CRR binomial tree, European and American exercise
-- [ ] Monte Carlo Greeks: bump-and-revalue with common random numbers, pathwise delta
+- [x] Monte Carlo Greeks: bump-and-revalue with common random numbers, pathwise delta and vega, likelihood ratio delta
 - [ ] Implied volatility, exotic options (Asian, barrier)
