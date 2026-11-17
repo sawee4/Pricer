@@ -65,6 +65,16 @@ target_include_directories(pricer PUBLIC
 target_compile_features(pricer PUBLIC cxx_std_17)
 target_link_libraries(pricer PRIVATE pricer_warnings)
 
+# No floating-point contraction: GCC fuses a * b + c into one FMA instruction whenever the
+# target has FMA (it does so even in ISO C++ mode), which skips the rounding of a * b. Results
+# would then depend on the CPU flags the compiler targets (bit-reproducibility across machines
+# is lost, and Welford's variance of identical samples is no longer exactly zero). PUBLIC
+# because the statistics accumulators are inline in the headers. MSVC does not contract by
+# default (/fp:precise).
+if(NOT MSVC)
+    target_compile_options(pricer PUBLIC -ffp-contract=off)
+endif()
+
 # ---------------------------------------------------------------------------
 # Tests and examples
 # ---------------------------------------------------------------------------
