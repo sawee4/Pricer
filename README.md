@@ -35,4 +35,4 @@ ctest --test-dir build -C Release --output-on-failure
 - [x] Variance reduction: antithetic variates, control variate (with measured reduction factors)
 - [x] CRR binomial tree, European and American exercise
 - [x] Monte Carlo Greeks: bump-and-revalue with common random numbers, pathwise delta and vega, likelihood ratio delta
-- [ ] Implied volatility, exotic options (Asian, barrier)
+- [x] Implied volatility (safeguarded Newton), Asian and barrier options by path simulation

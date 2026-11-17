@@ -51,6 +51,10 @@ add_library(pricer
     src/monte_carlo_pricer.cpp
     src/binomial_pricer.cpp
     src/monte_carlo_greeks.cpp
+    src/implied_vol.cpp
+    src/path_payoff.cpp
+    src/path_dependent_pricer.cpp
+    src/exotic_formulas.cpp
     src/market_data.cpp
     src/option.cpp
 )
